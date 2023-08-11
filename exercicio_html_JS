@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Validação</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+        .css {
+    margin: 80px auto;
+    max-width: 640px;
+    width: 100%;
+}
+
+        header h1, h2, form button {
+    font-family: 'Bungee', cursive;
+    font-weight: normal;
+}
+        body, input {
+    background-color: rgb(74, 148, 216);
+    font-family: 'Roboto', sans-serif;
+}
+        form input,
+        form button {
+            display: block;
+            width: 320px;
+            margin-bottom: 8px;
+            padding: 8px;
+        }
+
+        form button {
+        background-color: #070647;
+        border: none;
+        text-transform: uppercase;
+        color: #fff;
+        font-weight: bold;
+        font-size: 18px;
+        font-style: italic;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #108b8b;
+    }
+
+    footer {
+        background-color: #070647;
+        color: #ecf0f1;
+        padding: 8px 0;
+    }
+    </style>
+</head>
+<body>
+    <div class="css">
+        <h1>Formulário de Validação</h1>
+        <h2>Preencha os campos:</h2>
+    <form id="validaForm">
+        <input type="number" id="campoA" required placeholder="Valor númerico A" />
+        <input type="number" id="campoB" required placeholder="Valor númerico B" />
+            <button id="btn-depositar" type="submit">Validar</button>
+            <button type="reset">Limpar</button>
+    </form>
+        <p class="success-message"></p>
+        <p class="error-message"></p>
+    </div>
+    <script>
+        const form = document.getElementById('validaForm');
+        const campoA= parseFloat(document.getElementById('campoA').value);
+        const campoB= parseFloat(document.getElementById('campoB').value);
+        
+        function validacaoFormulario(campoA, campoB){
+        return campoB >= campoA
+        }
+        
+        form.addEventListener('submit', function (e){ 
+    e.preventDefault();
+
+    const valorA = document.getElementById('campoA').value;
+    const valorB = document.getElementById('campoB').value;
+    const mensagemSucesso = `Positivo, o valor de B: ${valorB} é maior que o Valor de A: ${valorA}`;
+    const mensagemErro = `Inválido, o valor de B: ${valorB} é inferior que o Valor de A: ${valorA}`;
+
+    if (validacaoFormulario) {
+        const cssMensagemSucesso = document.querySelector('.success-message');
+        cssMensagemSucesso.innerHTML = mensagemSucesso;
+        cssMensagemSucesso.style.display = 'block';
+        campoA.value = '';
+        campoB.value = '';
+
+    } else {
+        const cssMensagemErro = document.querySelector('.error-message').style.display = 'block';
+        cssMensagemErro.innerHTML = mensagemErro;
+        cssMensagemErro.style.display = 'block';
+        }
+})
+    </script>
+    <footer>
+        <div class="css">
+            <p>
+                &copy; Formulário de Validação - Aprendendo JavaScript - 2023
+            </p>
+        </div>
+    </footer>
+    </body>
+</html>
