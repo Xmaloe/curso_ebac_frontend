@@ -79,14 +79,14 @@
         }
         
         form.addEventListener('submit', function (e){ 
-    e.preventDefault();
+    e.preventDefault(); 
 
-    const valorA = document.getElementById('campoA').value;
-    const valorB = document.getElementById('campoB').value;
+    const valorA = parseFloat(document.getElementById('campoA').value);
+    const valorB = parseFloat(document.getElementById('campoA').value);
     const mensagemSucesso = `Positivo, o valor de B: ${valorB} é maior que o Valor de A: ${valorA}`;
     const mensagemErro = `Inválido, o valor de B: ${valorB} é inferior que o Valor de A: ${valorA}`;
 
-    if (validacaoFormulario) {
+    if (validacaoFormulario(campoA, campoB)) {
         const cssMensagemSucesso = document.querySelector('.success-message');
         cssMensagemSucesso.innerHTML = mensagemSucesso;
         cssMensagemSucesso.style.display = 'block';
