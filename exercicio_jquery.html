@@ -69,7 +69,7 @@
 <body>
     <h1>Lista de tarefas</h1>
     <div class="container">
-      <form>
+    <form>
     <input type="text" required placeholder="Nome da tarefa" id="tarefa">
     <button type="submit" id="submit-button">Cadastrar</button>
     </form>
@@ -77,8 +77,8 @@
     <ul id="tarefas" class="center-list"></ul>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-      $(document).ready(function () {
-      $('#submit-button').click(function (e) {
+    $(document).ready(function () {
+    $('#submit-button').click(function (e) {
         e.preventDefault(); 
 
         var novaTarefa = $("#tarefa").val();
