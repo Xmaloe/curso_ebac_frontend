@@ -1,0 +1,116 @@
+@primary-color: #182C61;
+@accent-color: #44bd32;
+@accent-hover-color: #4cd137;
+@base-font-family: Roboto, sans-serif;
+@base-font-size: 16px;
+
+    @sizes: {
+        tablet: 768px;
+        desktop: 1024px;
+    }
+
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: @base-font-family;
+    }
+
+    body {
+        background-color: #f5f6fa;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .container {
+        max-width: 1024px;
+        width: ~"100%";
+        margin: 0 auto;
+    }
+
+    header {
+        background-color: @primary-color;
+        position: sticky;
+        top: 0;
+        left: 0;
+    }
+
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: @base-font-size 0;
+
+        .branding img {
+            width: 120px;
+            height: 70px;
+        }
+    }
+
+    .menu {display: flex;
+
+        li {
+            font-weight: bold; 
+            margin-left: 24px;
+            
+        a {
+            color: #fff; 
+            text-decoration: none;}
+        }
+    }
+
+    section {
+        padding: 56px 0;
+    }
+
+    .products {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(3, 32.66%);
+        column-gap: 1%;
+        row-gap: 4%;
+        width: 100%;
+
+        li img {
+            width: 100%;
+            border-radius: @base-font-size;
+        }
+
+        a {
+            display: block;
+            background-color: @accent-color;
+            color: #fff;
+            text-align: center;
+            padding: 8px 0;
+            border-radius: 8px;
+            margin-top: 8px;
+            text-decoration: none;
+        }
+    
+        a:hover {
+            background-color: @accent-hover-color;
+        }
+    }
+
+    @media screen and (max-width: @sizes[desktop]) {
+        .container {
+            max-width: 80%;
+        }
+
+        .products {
+            grid-template-columns: repeat(2, 48.5%);
+            column-gap: 3%;
+        }
+    }
+
+    @media screen and (max-width: @sizes[tablet]) {
+        .products {
+            display: block;
+        }
+
+        li  {
+            margin-bottom: 32px;
+        }
+    }
