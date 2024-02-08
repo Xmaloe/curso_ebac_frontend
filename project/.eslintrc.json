@@ -6,7 +6,8 @@
     "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "plugin:prettier/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -18,11 +19,16 @@
         "react",
         "react-hooks"
     ],
-    "rules": { //configuração está no DOC do react hooks
-      "react-hooks/rules-of-hooks": "erro",
+    "rules": {
+      "react-hooks/rules-of-hooks": "error", //configuração está no DOC do react hooks
       "react-hooks/exhaustive-deps": "warn",
       "react/prop-types": "off",
       "react/react-in-jsx-scope": "off",
       "@typescript-eslint/explicit-mudule-boundary-types": "off"
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
     }
 }
